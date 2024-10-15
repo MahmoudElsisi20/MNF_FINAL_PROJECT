@@ -1,0 +1,115 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R1-Branch1
+!
+!
+!
+enable secret 5 $1$mERr$oQAVh6m3ZXpHg1a4H7bsa.
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+username Mahmoud secret 5 $1$mERr$oQAVh6m3ZXpHg1a4H7bsa.
+!
+!
+license udi pid CISCO2901/K9 sn FTX1524KE2T-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+ip domain-name Mj.com
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ ip address 192.168.40.1 255.255.255.0
+ ip ospf 1 area 0
+ ip nat inside
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ ip address 192.168.50.1 255.255.255.0
+ ip ospf 1 area 0
+ duplex auto
+ speed auto
+!
+interface Serial0/3/0
+ ip address 192.168.100.1 255.255.255.0
+ ip ospf 1 area 0
+ ip nat outside
+!
+interface Serial0/3/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ router-id 1.1.1.1
+ log-adjacency-changes
+ network 192.168.40.0 0.0.0.255 area 0
+ network 192.168.50.0 0.0.0.255 area 0
+ network 192.168.100.0 0.0.0.255 area 0
+!
+router rip
+!
+ip nat pool DYNAT40 192.168.100.10 192.168.100.110 netmask 255.255.255.0
+ip nat inside source list 40 pool DYNAT40 overload
+ip classless
+!
+ip flow-export version 9
+!
+!
+access-list 40 permit 192.168.40.0 0.0.0.255
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+ login local
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+!
+ntp server 192.168.99.5
+ntp update-calendar
+!
+end
+

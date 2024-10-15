@@ -1,0 +1,221 @@
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Core1-Branch2
+!
+!
+enable secret 5 $1$mERr$oQAVh6m3ZXpHg1a4H7bsa.
+!
+!
+!
+!
+!
+ip routing
+!
+!
+!
+!
+username Mahmoud secret 5 $1$mERr$oQAVh6m3ZXpHg1a4H7bsa.
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+ip domain-name Mj.com
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Port-channel1
+ switchport trunk native vlan 99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface Port-channel2
+ switchport trunk native vlan 99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ shutdown
+!
+interface FastEthernet0/2
+ switchport trunk native vlan 99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/3
+ switchport trunk native vlan 99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/4
+ shutdown
+!
+interface FastEthernet0/5
+ shutdown
+!
+interface FastEthernet0/6
+ shutdown
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+ switchport trunk native vlan 99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 2 mode desirable
+!
+interface FastEthernet0/16
+ switchport trunk native vlan 99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 2 mode desirable
+!
+interface FastEthernet0/17
+ switchport trunk native vlan 99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 2 mode desirable
+!
+interface FastEthernet0/18
+ switchport trunk native vlan 99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 2 mode desirable
+!
+interface FastEthernet0/19
+ switchport trunk native vlan 99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 2 mode desirable
+!
+interface FastEthernet0/20
+ switchport trunk native vlan 99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/21
+ switchport trunk native vlan 99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/22
+ switchport trunk native vlan 99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/23
+ switchport trunk native vlan 99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/24
+ switchport trunk native vlan 99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface GigabitEthernet0/1
+ no switchport
+ ip address 192.168.80.2 255.255.255.0
+ ip ospf 1 area 0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ mac-address 0001.64be.3d01
+ ip address 192.168.90.3 255.255.255.0
+ ip helper-address 192.168.99.10
+!
+interface Vlan20
+ mac-address 0001.64be.3d02
+ ip address 192.168.91.3 255.255.255.0
+ ip helper-address 192.168.99.10
+!
+interface Vlan30
+ mac-address 0001.64be.3d03
+ ip address 192.168.92.3 255.255.255.0
+ ip helper-address 192.168.99.10
+!
+interface Vlan99
+ mac-address 0001.64be.3d04
+ ip address 192.168.93.3 255.255.255.0
+ ip helper-address 192.168.99.10
+!
+router ospf 1
+ log-adjacency-changes
+ network 192.168.80.0 0.0.0.255 area 0
+ network 192.168.90.0 0.0.0.255 area 0
+ network 192.168.91.0 0.0.0.255 area 0
+ network 192.168.92.0 0.0.0.255 area 0
+ network 192.168.93.0 0.0.0.255 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+ login local
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+!
+!
+!
+end
+
