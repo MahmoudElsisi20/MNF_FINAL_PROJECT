@@ -4,7 +4,7 @@ no service timestamps log datetime msec
 no service timestamps debug datetime msec
 no service password-encryption
 !
-hostname Switch
+hostname Door-3-AS-B2
 !
 !
 !
@@ -14,17 +14,13 @@ hostname Switch
 spanning-tree mode pvst
 spanning-tree extend system-id
 !
-interface Port-channel2
- switchport trunk native vlan 99
- switchport mode trunk
-!
 interface FastEthernet0/1
  switchport trunk native vlan 99
  switchport mode trunk
  switchport nonegotiate
 !
 interface FastEthernet0/2
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -32,7 +28,7 @@ interface FastEthernet0/2
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/3
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -40,7 +36,7 @@ interface FastEthernet0/3
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/4
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -48,7 +44,7 @@ interface FastEthernet0/4
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/5
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -56,7 +52,7 @@ interface FastEthernet0/5
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/6
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -64,7 +60,7 @@ interface FastEthernet0/6
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/7
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -72,7 +68,7 @@ interface FastEthernet0/7
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/8
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -80,7 +76,7 @@ interface FastEthernet0/8
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/9
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -88,7 +84,7 @@ interface FastEthernet0/9
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/10
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -96,7 +92,7 @@ interface FastEthernet0/10
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/11
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -104,7 +100,7 @@ interface FastEthernet0/11
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/12
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -112,7 +108,7 @@ interface FastEthernet0/12
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/13
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -120,7 +116,7 @@ interface FastEthernet0/13
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/14
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -128,32 +124,47 @@ interface FastEthernet0/14
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/15
- switchport trunk native vlan 99
- switchport mode trunk
- channel-group 2 mode desirable
+ switchport access vlan 30
+ switchport mode access
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/16
- switchport trunk native vlan 99
- switchport mode trunk
- channel-group 2 mode desirable
+ switchport access vlan 30
+ switchport mode access
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/17
- switchport trunk native vlan 99
- switchport mode trunk
- channel-group 2 mode desirable
+ switchport access vlan 30
+ switchport mode access
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/18
- switchport trunk native vlan 99
- switchport mode trunk
- channel-group 2 mode desirable
+ switchport access vlan 30
+ switchport mode access
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/19
- switchport trunk native vlan 99
- switchport mode trunk
- channel-group 2 mode desirable
+ switchport access vlan 30
+ switchport mode access
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ spanning-tree portfast
+ spanning-tree bpduguard enable
 !
 interface FastEthernet0/20
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -161,7 +172,7 @@ interface FastEthernet0/20
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/21
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -169,7 +180,7 @@ interface FastEthernet0/21
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/22
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -177,7 +188,7 @@ interface FastEthernet0/22
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/23
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 
@@ -185,7 +196,7 @@ interface FastEthernet0/23
  spanning-tree bpduguard enable
 !
 interface FastEthernet0/24
- switchport access vlan 20
+ switchport access vlan 30
  switchport mode access
  switchport port-security mac-address sticky 
  switchport port-security violation restrict 

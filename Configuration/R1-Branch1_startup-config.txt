@@ -44,6 +44,13 @@ spanning-tree mode pvst
 !
 !
 !
+interface Tunnel1
+ ip address 192.168.0.1 255.255.255.0
+ mtu 1476
+ tunnel source Serial0/3/0
+ tunnel destination 192.168.100.2
+!
+!
 interface GigabitEthernet0/0
  ip address 192.168.40.1 255.255.255.0
  ip ospf 1 area 0
